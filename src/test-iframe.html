@@ -33,8 +33,7 @@
         try {
             iframe.contentWindow.onbeforeunload();
         } catch (e) {
-            const log = document.getElementById('log');
-            log.innerHTML = e
+            console.log('error', e);
         }
     }
 </script>

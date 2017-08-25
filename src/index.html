@@ -7,31 +7,12 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="../node_modules/zone.js/dist/zone.js"></script>
 </head>
 <body>
 
 <script>
 
-    const desc = Object.getOwnPropertyDescriptor(window, 'onbeforeunload');
-    if (desc) {
-        const oriGet = desc.get;
-        const oriSet = desc.set;
-        const preDefinedEvent = document.createEvent('Event');
-        preDefinedEvent.initEvent('beforunload', false, true);
-        Object.defineProperty(window, 'onbeforeunload', {
-            configurable: true,
-            get: function () {
-                const args = Array.prototype.slice.call(arguments);
-                let evt = args.length === 0 ? preDefinedEvent : args[0];
-                return oriGet.apply(this, [evt]);
-            }
-        });
-    }
-
-    window.onbeforeunload = function () {
-        console.log('a');
-    };
+    
 
 </script>
 <app-root></app-root>
